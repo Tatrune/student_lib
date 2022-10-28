@@ -90,10 +90,58 @@ void docFile(int n)
         fprintf(ptr,"\ngioi tinh va tuoi sv[%d]: %s - %d",i,sv1[i].gioitinh,sv1[i].tuoi);
         fprintf(ptr,"\ndiem toan - ly - hoa la: %.2f - %.2f - %.2f",sv1[i].dtoan,sv1[i].dly,sv1[i].dhoa);
         fprintf(ptr,"\ndiem trung binh la: %.2f",sv1[i].dtb);
+        if (sv1[i].dtb >= 8)
+        {
+            fprintf(ptr,"\nhoc sinh nay loai gioi");
+        }
+        else if (sv1[i].dtb >= 5)
+        {
+            fprintf(ptr,"\nhoc sinh nay loai kha");
+        }
+        else
+        {
+            fprintf(ptr,"\nhoc sinh nay ngu");
+        }
         fprintf(ptr,"\n-------------------------------------------------------------------------------------------------");
     }
 fclose(ptr);
 }
+
+// add student to student_lib
+void add_Sv(int n){
+int pos;
+sV val;
+printf("ho va ten sinh vien: ");
+        getchar();
+        gets(val.hoten);
+        fflush(stdin);
+        printf("nhap gioi tinh va tuoi: ");
+        fflush(stdin);
+        gets(val.gioitinh);
+        scanf("%d",&val.tuoi);
+        printf("nhap diem toan ly hoa: ");
+        scanf("%f%f%f",&val.dtoan,&val.dly,&val.dhoa);
+
+        printf ("nhap vao vi tri muon thay doi: ");
+        scanf ("%d",&pos);
+    if(pos<0)
+        {
+            pos = 0;
+        }
+
+    else if (pos > n)
+    {
+        pos = n;
+    }
+
+    for (; pos > n; pos--)
+    {
+        sv1[pos+1] = sv1[pos]; 
+    }
+    sv1[pos] = val;
+    n++;
+}
+
 
 int main()
 {
@@ -103,8 +151,9 @@ int main()
     printf("1: nhap sinh vien\n");
     printf("2: xuat sinh vien\n");
     printf("3: sep xep sinh vien\n");
-    printf("4: doc File sinh vien\n");
-    printf("5: thoat chuong trinh\n");
+    printf("4: ghi File sinh vien\n");
+    printf("5: them sinh vien\n");
+    printf("6: thoat chuong trinh\n");
 
     scanf("%d",&chon);
     
@@ -117,7 +166,9 @@ int main()
         break;
         case 4 : docFile(n);
         break;
-        case 5 : return 0;
+        case 5 : add_Sv(n);
+        break;
+        case 6 : return 0;
         break;
         default: printf("chon lai");
         break;
