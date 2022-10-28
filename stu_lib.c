@@ -11,13 +11,8 @@ typedef struct sinhVien
 }sV;
 sV sv1[100];
 
-
-int main()
+void nhap(int n)
 {
-    int n;
-    printf("nhap vao so sinh vien: ");
-    scanf("%d",&n);
-
     //ham nhap
     for (int i = 0 ; i < n; i++)
     {
@@ -33,8 +28,11 @@ int main()
         scanf("%f%f%f",&sv1[i].dtoan,&sv1[i].dly,&sv1[i].dhoa);
         sv1[i].dtb = (sv1[i].dtoan+sv1[i].dly+sv1[i].dhoa)/3;
     }
+}
 
-// sap xep
+void sapXep(int n)
+{
+    // sap xep
     sV tmp;
     for(int i = 0;i < n;++i){
         for(int j = i+1; j < n;++j){
@@ -45,9 +43,12 @@ int main()
             }
         }
     }
+}
 
-//ham xuat
-    for (int i = 0 ; i < n; i++)
+void xuat(int n)
+{
+    //ham xuat
+        for (int i = 0 ; i < n; i++)
     {
         printf("\nho ten sinh vien [%d]: ",i);
         puts(sv1[i].hoten);
@@ -67,8 +68,12 @@ int main()
         {
             printf("\nhoc sinh nay ngu");
         }
-    }
-    FILE *ptr;
+}
+}
+
+void docFile(int n)
+{
+        FILE *ptr;
     ptr = fopen("C:\\Users\\ACER NITRO 5\\Desktop\\Git\\student_lib\\sb.txt","w");
     if(ptr == NULL)
 {
@@ -86,4 +91,15 @@ int main()
         fprintf(ptr,"\n-------------------------------------------------------------------------------------------------");
     }
 fclose(ptr);
+}
+
+int main()
+{
+    int n;
+    printf("nhap vao so sinh vien: ");
+    scanf("%d",&n);
+    nhap(n);
+    sapXep(n);
+    xuat(n);
+    docFile(n);
 }
