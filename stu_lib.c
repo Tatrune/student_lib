@@ -11,9 +11,11 @@ typedef struct sinhVien
 }sV;
 sV sv1[100];
 
-void nhap(int n)
+void nhap(int &n)
 {
     //ham nhap
+    printf("nhap vao so sinh vien: ");
+    scanf("%d",&n);
     for (int i = 0 ; i < n; i++)
     {
         printf("ho va ten sinh vien thu [%d]: ",i);
@@ -95,11 +97,32 @@ fclose(ptr);
 
 int main()
 {
-    int n;
-    printf("nhap vao so sinh vien: ");
-    scanf("%d",&n);
-    nhap(n);
-    sapXep(n);
-    xuat(n);
-    docFile(n);
+    label:
+    int n,chon;
+    printf ("=======================lua chon cua ban la gi=======================\n");
+    printf("1: nhap sinh vien\n");
+    printf("2: xuat sinh vien\n");
+    printf("3: sep xep sinh vien\n");
+    printf("4: doc File sinh vien\n");
+    printf("5: thoat chuong trinh\n");
+
+    scanf("%d",&chon);
+    
+    switch(chon){
+        case 1: nhap(n);
+        break;
+        case 2 : xuat(n);
+        break;
+        case 3 : sapXep(n);
+        break;
+        case 4 : docFile(n);
+        break;
+        case 5 : return 0;
+        break;
+        default: printf("chon lai");
+        break;
+    }
+    printf("\nnhan phim bat ky de tiep tuc: ");
+    _getch();
+    goto label;
 }
