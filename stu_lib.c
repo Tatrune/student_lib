@@ -52,9 +52,21 @@ int main()
         printf("\nho ten sinh vien [%d]: ",i);
         puts(sv1[i].hoten);
         printf("gioi tinh va tuoi sv[%d]: %s - %d",i,sv1[i].gioitinh,sv1[i].tuoi);
-        printf ("\ndiem toan - ly - hoa la: %.2f - %.2f - %.2f",sv1[i].dtoan,sv1[i].dly,sv1[i].dhoa);
-        printf ("\ndiem trung binh la: %.2f",sv1[i].dtb);
+        printf("\ndiem toan - ly - hoa la: %.2f - %.2f - %.2f",sv1[i].dtoan,sv1[i].dly,sv1[i].dhoa);
+        printf("\ndiem trung binh la: %.2f",sv1[i].dtb);
 
+        if (sv1[i].dtb >= 8)
+        {
+            printf("\nhoc sinh nay loai gioi");
+        }
+        else if (sv1[i].dtb >= 5)
+        {
+            printf("\nhoc sinh nay loai kha");
+        }
+        else
+        {
+            printf("\nhoc sinh nay ngu");
+        }
     }
 
 }
