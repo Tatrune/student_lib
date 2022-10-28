@@ -11,10 +11,10 @@ typedef struct sinhVien
 }sV;
 sV sv1[100];
 
+
 int main()
 {
     int n;
-    
     printf("nhap vao so sinh vien: ");
     scanf("%d",&n);
 
@@ -68,5 +68,22 @@ int main()
             printf("\nhoc sinh nay ngu");
         }
     }
+    FILE *ptr;
+    ptr = fopen("C:\\Users\\ACER NITRO 5\\Desktop\\Git\\student_lib\\sb.txt","w");
+    if(ptr == NULL)
+{
+    printf("Error! opening file");
+        // Program exits if file pointer returns NULL.
+        exit(1); 
+}
 
+    for (int i = 0 ; i < n; i++)
+    {
+        fprintf(ptr,"\nho ten sinh vien [%d] la: %s ",i,sv1[i].hoten);
+        fprintf(ptr,"\ngioi tinh va tuoi sv[%d]: %s - %d",i,sv1[i].gioitinh,sv1[i].tuoi);
+        fprintf(ptr,"\ndiem toan - ly - hoa la: %.2f - %.2f - %.2f",sv1[i].dtoan,sv1[i].dly,sv1[i].dhoa);
+        fprintf(ptr,"\ndiem trung binh la: %.2f",sv1[i].dtb);
+        fprintf(ptr,"\n-------------------------------------------------------------------------------------------------");
+    }
+fclose(ptr);
 }
