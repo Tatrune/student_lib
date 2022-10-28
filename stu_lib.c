@@ -17,6 +17,8 @@ int main()
     
     printf("nhap vao so sinh vien: ");
     scanf("%d",&n);
+
+    //ham nhap
     for (int i = 0 ; i < n; i++)
     {
         printf("ho va ten sinh vien thu [%d]: ",i);
@@ -31,8 +33,8 @@ int main()
         scanf("%f%f%f",&sv1[i].dtoan,&sv1[i].dly,&sv1[i].dhoa);
         sv1[i].dtb = (sv1[i].dtoan+sv1[i].dly+sv1[i].dhoa)/3;
     }
-}
 
+// sap xep
     sV tmp;
     for(int i = 0;i < n;++i){
         for(int j = i+1; j < n;++j){
@@ -43,14 +45,16 @@ int main()
             }
         }
     }
-}
 
+//ham xuat
     for (int i = 0 ; i < n; i++)
     {
-        printf("ho ten sinh vien [%d]: ",i);
+        printf("\nho ten sinh vien [%d]: ",i);
         puts(sv1[i].hoten);
         printf("gioi tinh va tuoi sv[%d]: %s - %d",i,sv1[i].gioitinh,sv1[i].tuoi);
-        printf ("\ndiem, toan - ly - hoa la: %.2f - %.2f - %.2f",sv1[i].dtoan,sv1[i].dly,sv1[i].dhoa);
+        printf ("\ndiem toan - ly - hoa la: %.2f - %.2f - %.2f",sv1[i].dtoan,sv1[i].dly,sv1[i].dhoa);
+        printf ("\ndiem trung binh la: %.2f",sv1[i].dtb);
+
     }
-    
+
 }
