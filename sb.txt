@@ -1,0 +1,16 @@
+
+ho ten sinh vien [0] la c: 
+gioi tinh va tuoi sv[0]: nam - 20
+diem toan - ly - hoa la: 1.00 - 1.00 - 2.00
+diem trung binh la: 1.33
+-------------------------------------------------------------------------------------------------
+ho ten sinh vien [1] la nu: 
+gioi tinh va tuoi sv[1]: nu - 20
+diem toan - ly - hoa la: 7.00 - 7.00 - 7.00
+diem trung binh la: 7.00
+-------------------------------------------------------------------------------------------------
+ho ten sinh vien [2] la trung: 
+gioi tinh va tuoi sv[2]: nam - 20
+diem toan - ly - hoa la: 8.00 - 8.00 - 8.00
+diem trung binh la: 8.00
+-------------------------------------------------------------------------------------------------
