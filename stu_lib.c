@@ -11,25 +11,16 @@ typedef struct sinhVien
 }sV;
 sV sv1[100];
 
-void sapxep(sV sv1, int n)
+int main()
 {
-    sV tam;
+    int n;
+    
+    printf("nhap vao so sinh vien: ");
+    scanf("%d",&n);
     for (int i = 0 ; i < n; i++)
     {
-        if(sv1[i+1].dtb < sv1[i].dtb)
-        {
-            tam = sv1[i].dtb;
-            sv1[i].dtb = sv1[i+1].dtb;
-            sv1[i+1].dtb = tam;
-        }
-    }
-}
-
-void nhapsV (int n)
-{
-for (int i = 0 ; i < n; i++)
-    {
         printf("ho va ten sinh vien thu [%d]: ",i);
+        getchar();
         gets(sv1[i].hoten);
         fflush(stdin);
         printf("nhap gioi tinh va tuoi: ");
@@ -42,8 +33,18 @@ for (int i = 0 ; i < n; i++)
     }
 }
 
-void xuatsV(int n)
-{
+    sV tmp;
+    for(int i = 0;i < n;++i){
+        for(int j = i+1; j < n;++j){
+            if(sv1[i].dtb > sv1[j].dtb){
+                tmp = sv1[i];
+                sv1[i] = sv1[j];
+                sv1[j] = tmp;
+            }
+        }
+    }
+}
+
     for (int i = 0 ; i < n; i++)
     {
         printf("ho ten sinh vien [%d]: ",i);
@@ -51,15 +52,5 @@ void xuatsV(int n)
         printf("gioi tinh va tuoi sv[%d]: %s - %d",i,sv1[i].gioitinh,sv1[i].tuoi);
         printf ("\ndiem, toan - ly - hoa la: %.2f - %.2f - %.2f",sv1[i].dtoan,sv1[i].dly,sv1[i].dhoa);
     }
-}
-
-int main()
-{
-    int n;
-    
-    printf("nhap vao so sinh vien: ");
-    scanf("%d",&n);
-    nhapsV(sv1,n);
-    xuatsV(sv1,n);
     
 }
